@@ -1,3 +1,6 @@
+pragma solidity >=0.8.0 <0.9.0;
+//SPDX-License-Identifier: MIT
+
 import "hardhat/console.sol";
 // import "@openzeppelin/contracts/access/Ownable.sol";
 // https://github.com/OpenZeppelin/openzeppelin-contracts/blob/master/contracts/access/Ownable.sol
@@ -11,6 +14,11 @@ contract YourContract {
   string public purpose = "Building Unstoppable Apps!!!!!!!";
   address public owner = 0xce5875ab4082f80c5C810f47FB81EDd9f5CE9e33;
   AggregatorV3Interface internal priceFeed;
+  int public balance = 0;
+  // balance = owner.balance;
+  int public donation = 0;
+  int public limit = 0;
+  int public totalAmountDonated = 0;
 
   constructor() payable {
     priceFeed = AggregatorV3Interface(0x5f4eC3Df9cbd43714FE2740f5E3616155c5b8419);
