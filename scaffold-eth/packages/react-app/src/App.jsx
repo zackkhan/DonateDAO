@@ -170,8 +170,32 @@ function App(props) {
   const purpose = useContractReader(readContracts, "YourContract", "purpose");
 
 
-  // const totalAmountDonated = useContractReader(readContracts, "YourContract", "totalAmountDonated");
-  // const balance = useContractReader(readContracts, "YourContract", "balance");
+  const totalAmountDonated = useContractReader(readContracts, "YourContract", "totalAmountDonated")//.toBigInt();
+  const balance = useContractReader(readContracts, "YourContract", "balance")//.toBigInt();
+
+  var totalAmountDonatedHex = "";
+
+  var balanceHex = "";
+
+
+  console.log("WHATS UPPPPPP")
+
+  console.log(totalAmountDonated);
+
+  console.log(balance);
+
+
+  if (totalAmountDonated != null){
+    totalAmountDonatedHex = totalAmountDonated._hex
+    
+    
+  }
+
+  if (balance != null){
+    balanceHex = balance._hex
+    
+    
+  }
 
   /*
   const addressFromENS = useResolveName(mainnetProvider, "austingriffith.eth");
@@ -285,7 +309,7 @@ function App(props) {
         <Route exact path="/">
           {/* pass in any web3 props to this Home component. For example, yourLocalBalance */}
           <Home yourLocalBalance={yourLocalBalance} readContracts={readContracts} 
-          // totalAmountDonated = {totalAmountDonated} balance = {balance}
+           totalAmountDonated = {totalAmountDonatedHex} balance = {balanceHex}
           />
         </Route>
         <Route exact path="/debug">
