@@ -169,6 +169,10 @@ function App(props) {
   // keep track of a variable from the contract in the local React state:
   const purpose = useContractReader(readContracts, "YourContract", "purpose");
 
+
+  // const totalAmountDonated = useContractReader(readContracts, "YourContract", "totalAmountDonated");
+  // const balance = useContractReader(readContracts, "YourContract", "balance");
+
   /*
   const addressFromENS = useResolveName(mainnetProvider, "austingriffith.eth");
   console.log("🏷 Resolved austingriffith.eth as:",addressFromENS)
@@ -261,9 +265,9 @@ function App(props) {
           <Link to="/">App Home</Link>
         </Menu.Item>
         <Menu.Item key="/debug">
-          <Link to="/debug">Debug Contracts</Link>
+          <Link to="/debug">Setup</Link>
         </Menu.Item>
-        <Menu.Item key="/hints">
+        {/* <Menu.Item key="/hints">
           <Link to="/hints">Hints</Link>
         </Menu.Item>
         <Menu.Item key="/exampleui">
@@ -274,13 +278,15 @@ function App(props) {
         </Menu.Item>
         <Menu.Item key="/subgraph">
           <Link to="/subgraph">Subgraph</Link>
-        </Menu.Item>
+        </Menu.Item> */}
       </Menu>
 
       <Switch>
         <Route exact path="/">
           {/* pass in any web3 props to this Home component. For example, yourLocalBalance */}
-          <Home yourLocalBalance={yourLocalBalance} readContracts={readContracts} />
+          <Home yourLocalBalance={yourLocalBalance} readContracts={readContracts} 
+          // totalAmountDonated = {totalAmountDonated} balance = {balance}
+          />
         </Route>
         <Route exact path="/debug">
           {/*
